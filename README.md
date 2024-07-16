@@ -25,7 +25,29 @@ Todo esto junto con un sistema de usuarios y contraseñas los cuales daran un to
 - Ejecute el archivo ForoHubApplication del proyecto.
 
 ## Funcionalidad
+Una vez ejecutado el programa, iremos a la base de datos generada en MySQL Workbench donde en la tabla de usuarios registraremos un nuevo usuario y su respectiva contraseña en formato bcrypt.
+<img src="https://github.com/Kpp94/forohub/blob/master/img/Usuario.png?raw=true" width="750px">
 
+Dentro de la carpeta se encuentra un archivo ejecutable llamado **CreadorClave** en el cual podras generar tu propia clave en formato bcrypt y copiarla en la columna contraseña de la base de datos
+<img src="https://github.com/Kpp94/forohub/blob/master/img/gurdar_contra.png?raw=true" width="750px">
+
+Con el programa ForoHubApplication ejecutado iremos a insmonia y creaermos un nuevo proyecto donde haremos los request de los topicos.
+
+## Login de Usuario
+Lo primero que haremos sera hacer el Login del usuario asi que crearemos un nuevo Request con el metodo Post y la siguiente URL: **http://localhost:8080/login**
+en el Body del request en formato json ingresaremos los siguientes datos
+
+  `"login": "nombre registrado",`
+	`"password": "contraseña sin formato hash (bcrypt)"`
+ 
+ <img src="https://github.com/Kpp94/forohub/blob/master/img/validar_usuario.png?raw=true">
+
+ Al ingresar correctamente los datos igual que en la base de datos obtendremos un status 200 ok y nos generara un token.
+
+ <img src="https://github.com/Kpp94/forohub/blob/master/img/token_generado.png?raw=true" width="750px">
+
+ ## Registrar Topico
+Ya con nuestro token generado realizaremos el siguiente request que sera registrar un topico para lo cual usaremos la siguiente URL: http://localhost:8080/topicos  
 
 ## Datos a considerar <img src="https://w7.pngwing.com/pngs/973/727/png-transparent-amplifier-owner-s-manual-product-manuals-sign-electric-potential-difference-importance-thumbnail.png" width="30px">
 - Si se selecciona una opcion fuera de las mostradas en el menu, se mostrara una alerta mencionando que la opcion no es valida.
